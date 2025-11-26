@@ -2,519 +2,525 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arabic Grammar Terms Reference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Arabic Grammar Terms - Mobile</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 30px 20px;
+            padding: 15px;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
             color: #667eea;
             text-align: center;
-            margin-bottom: 10px;
-            font-size: 2.5em;
+            margin-bottom: 8px;
+            font-size: 1.6em;
+            line-height: 1.3;
         }
 
         .subtitle {
             text-align: center;
             color: #666;
-            margin-bottom: 30px;
-            font-size: 1.1em;
+            margin-bottom: 25px;
+            font-size: 0.9em;
+            line-height: 1.4;
         }
 
         .category-section {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .category-title {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        th {
-            background: #f8f9fa;
-            color: #333;
-            padding: 15px;
-            text-align: left;
-            font-weight: bold;
-            border-bottom: 2px solid #667eea;
-        }
-
-        td {
             padding: 12px 15px;
-            border-bottom: 1px solid #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
         }
 
-        tr:hover {
-            background: #f5f7ff;
+        /* Mobile-friendly card layout */
+        .terms-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .term-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s;
+        }
+
+        .term-card:active {
+            transform: scale(0.98);
+            background: #e9ecef;
         }
 
         .arabic {
-            font-size: 1.3em;
+            font-size: 1.8em;
             direction: rtl;
             color: #667eea;
             font-weight: bold;
+            margin-bottom: 8px;
+            line-height: 1.4;
         }
 
         .transliteration {
             color: #9c27b0;
             font-style: italic;
+            font-size: 0.95em;
+            margin-bottom: 8px;
         }
 
         .english {
             color: #333;
+            font-weight: 600;
+            font-size: 1em;
+            margin-bottom: 8px;
         }
 
         .examples {
             color: #666;
-            font-size: 0.95em;
+            font-size: 0.9em;
+            line-height: 1.5;
+            padding-top: 8px;
+            border-top: 1px solid #dee2e6;
         }
 
         .note {
             background: #fff3cd;
-            padding: 15px;
+            padding: 12px;
             border-radius: 8px;
-            margin-top: 10px;
+            margin-top: 12px;
             border-left: 4px solid #ffc107;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .note strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #856404;
+        }
+
+        .note ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .note li {
+            margin-bottom: 4px;
+            color: #856404;
         }
 
         .attribution {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 30px;
             padding-top: 20px;
             border-top: 2px solid #e0e0e0;
             color: #666;
-            font-size: 0.9em;
+            font-size: 0.85em;
+            line-height: 1.6;
         }
 
-        @media (max-width: 768px) {
+        .attribution p {
+            margin-bottom: 8px;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading optimization */
+        .category-section {
+            opacity: 0;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .category-section:nth-child(1) { animation-delay: 0.05s; }
+        .category-section:nth-child(2) { animation-delay: 0.1s; }
+        .category-section:nth-child(3) { animation-delay: 0.15s; }
+
+        /* Larger screens */
+        @media (min-width: 768px) {
             .container {
-                padding: 20px;
+                padding: 40px;
             }
 
             h1 {
-                font-size: 1.8em;
+                font-size: 2.2em;
             }
 
-            table {
-                font-size: 0.9em;
+            .subtitle {
+                font-size: 1.05em;
             }
 
-            th, td {
-                padding: 8px;
+            .category-title {
+                font-size: 1.4em;
+                padding: 15px 20px;
             }
 
+            .term-card {
+                padding: 20px;
+            }
+
+            .terms-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+
+        @media (min-width: 1024px) {
             .arabic {
-                font-size: 1.1em;
+                font-size: 2em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📚 Arabic Grammar Terms Reference</h1>
-        <p class="subtitle">Complete Guide to Arabic Grammatical Terminology (النَّحْو وَالصَّرْف)</p>
+        <h1>📚 Arabic Grammar Terms</h1>
+        <p class="subtitle">Complete Guide to Grammatical Terminology<br>(النَّحْو وَالصَّرْف)</p>
 
         <!-- PARTS OF SPEECH -->
         <div class="category-section">
             <h2 class="category-title">1️⃣ Parts of Speech (أَقْسَام الكَلِمَة)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">اِسْم</td>
-                        <td class="transliteration">Ism</td>
-                        <td class="english">Noun</td>
-                        <td class="examples">بَيْت (house), رَجُل (man), كِتَاب (book)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">فِعْل</td>
-                        <td class="transliteration">Fi'l</td>
-                        <td class="english">Verb</td>
-                        <td class="examples">ذَهَبَ (went), كَتَبَ (wrote), قَرَأَ (read)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">حَرْف</td>
-                        <td class="transliteration">Harf</td>
-                        <td class="english">Particle/Letter</td>
-                        <td class="examples">فِي (in), مِن (from), إِلَى (to)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">اِسْم</div>
+                    <div class="transliteration">Ism</div>
+                    <div class="english">Noun</div>
+                    <div class="examples">بَيْت (house), رَجُل (man), كِتَاب (book)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">فِعْل</div>
+                    <div class="transliteration">Fi'l</div>
+                    <div class="english">Verb</div>
+                    <div class="examples">ذَهَبَ (went), كَتَبَ (wrote), قَرَأَ (read)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">حَرْف</div>
+                    <div class="transliteration">Harf</div>
+                    <div class="english">Particle/Letter</div>
+                    <div class="examples">فِي (in), مِن (from), إِلَى (to)</div>
+                </div>
+            </div>
         </div>
 
         <!-- PRONOUNS -->
         <div class="category-section">
             <h2 class="category-title">2️⃣ Pronouns (الضَّمَائِر)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">ضَمِير</td>
-                        <td class="transliteration">Dameer</td>
-                        <td class="english">Pronoun</td>
-                        <td class="examples">General term for all pronouns</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">ضَمِير مُنفَصِل</td>
-                        <td class="transliteration">Dameer Munfasil</td>
-                        <td class="english">Detached/Independent Pronoun</td>
-                        <td class="examples">أَنَا (I), أَنْتَ (you-m), هُوَ (he), هِيَ (she), نَحْنُ (we)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">ضَمِير مُتَّصِل</td>
-                        <td class="transliteration">Dameer Muttasil</td>
-                        <td class="english">Attached/Suffix Pronoun</td>
-                        <td class="examples">ـهُ (his/him), ـكَ (your/you-m), ـي (my/me)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">ضَمِير المُتَكَلِّم</td>
-                        <td class="transliteration">Dameer al-Mutakallim</td>
-                        <td class="english">First Person Pronoun</td>
-                        <td class="examples">أَنَا (I), نَحْنُ (we)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">ضَمِير المُخَاطَب</td>
-                        <td class="transliteration">Dameer al-Mukhaatab</td>
-                        <td class="english">Second Person Pronoun</td>
-                        <td class="examples">أَنْتَ (you-m), أَنْتِ (you-f), أَنْتُم (you-pl.m)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">ضَمِير الغَائِب</td>
-                        <td class="transliteration">Dameer al-Gha'ib</td>
-                        <td class="english">Third Person Pronoun</td>
-                        <td class="examples">هُوَ (he), هِيَ (she), هُم (they-m), هُنَّ (they-f)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">ضَمِير</div>
+                    <div class="transliteration">Dameer</div>
+                    <div class="english">Pronoun</div>
+                    <div class="examples">General term for all pronouns</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">ضَمِير مُنفَصِل</div>
+                    <div class="transliteration">Dameer Munfasil</div>
+                    <div class="english">Detached/Independent Pronoun</div>
+                    <div class="examples">أَنَا (I), أَنْتَ (you-m), هُوَ (he), هِيَ (she), نَحْنُ (we)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">ضَمِير مُتَّصِل</div>
+                    <div class="transliteration">Dameer Muttasil</div>
+                    <div class="english">Attached/Suffix Pronoun</div>
+                    <div class="examples">ـهُ (his/him), ـكَ (your/you-m), ـي (my/me)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">ضَمِير المُتَكَلِّم</div>
+                    <div class="transliteration">Dameer al-Mutakallim</div>
+                    <div class="english">First Person Pronoun</div>
+                    <div class="examples">أَنَا (I), نَحْنُ (we)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">ضَمِير المُخَاطَب</div>
+                    <div class="transliteration">Dameer al-Mukhaatab</div>
+                    <div class="english">Second Person Pronoun</div>
+                    <div class="examples">أَنْتَ (you-m), أَنْتِ (you-f), أَنْتُم (you-pl.m)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">ضَمِير الغَائِب</div>
+                    <div class="transliteration">Dameer al-Gha'ib</div>
+                    <div class="english">Third Person Pronoun</div>
+                    <div class="examples">هُوَ (he), هِيَ (she), هُم (they-m), هُنَّ (they-f)</div>
+                </div>
+            </div>
         </div>
 
         <!-- ADVERBS -->
         <div class="category-section">
             <h2 class="category-title">3️⃣ Adverbs (الظُّرُوف)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">ظَرْف</td>
-                        <td class="transliteration">Dharf</td>
-                        <td class="english">Adverb (lit: container)</td>
-                        <td class="examples">General term</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">ظَرْف الزَّمَان</td>
-                        <td class="transliteration">Dharf az-Zamaan</td>
-                        <td class="english">Adverb of Time</td>
-                        <td class="examples">اليَوْم (today), أَمْس (yesterday), غَداً (tomorrow), قَبْلَ (before), بَعْدَ (after)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">ظَرْف المَكَان</td>
-                        <td class="transliteration">Dharf al-Makaan</td>
-                        <td class="english">Adverb of Place</td>
-                        <td class="examples">أَمَام (in front), خَلْف (behind), تَحْتَ (under), فَوْقَ (above), عِنْدَ (at/near)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">ظَرْف</div>
+                    <div class="transliteration">Dharf</div>
+                    <div class="english">Adverb (lit: container)</div>
+                    <div class="examples">General term</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">ظَرْف الزَّمَان</div>
+                    <div class="transliteration">Dharf az-Zamaan</div>
+                    <div class="english">Adverb of Time</div>
+                    <div class="examples">اليَوْم (today), أَمْس (yesterday), غَداً (tomorrow), قَبْلَ (before), بَعْدَ (after)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">ظَرْف المَكَان</div>
+                    <div class="transliteration">Dharf al-Makaan</div>
+                    <div class="english">Adverb of Place</div>
+                    <div class="examples">أَمَام (in front), خَلْف (behind), تَحْتَ (under), فَوْقَ (above), عِنْدَ (at/near)</div>
+                </div>
+            </div>
         </div>
 
         <!-- GENDER -->
         <div class="category-section">
             <h2 class="category-title">4️⃣ Gender (الجِنْس)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">مُذَكَّر</td>
-                        <td class="transliteration">Mudhakkar</td>
-                        <td class="english">Masculine</td>
-                        <td class="examples">طَالِب (student-m), مُدَرِّس (teacher-m)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">مُؤَنَّث</td>
-                        <td class="transliteration">Mu'annath</td>
-                        <td class="english">Feminine</td>
-                        <td class="examples">طَالِبَة (student-f), مُدَرِّسَة (teacher-f)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">مُذَكَّر</div>
+                    <div class="transliteration">Mudhakkar</div>
+                    <div class="english">Masculine</div>
+                    <div class="examples">طَالِب (student-m), مُدَرِّس (teacher-m)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">مُؤَنَّث</div>
+                    <div class="transliteration">Mu'annath</div>
+                    <div class="english">Feminine</div>
+                    <div class="examples">طَالِبَة (student-f), مُدَرِّسَة (teacher-f)</div>
+                </div>
+            </div>
         </div>
 
         <!-- NUMBER -->
         <div class="category-section">
             <h2 class="category-title">5️⃣ Number (العَدَد)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">مُفْرَد</td>
-                        <td class="transliteration">Mufrad</td>
-                        <td class="english">Singular</td>
-                        <td class="examples">كِتَاب (book), طَالِب (student)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">مُثَنَّى</td>
-                        <td class="transliteration">Muthanna</td>
-                        <td class="english">Dual</td>
-                        <td class="examples">كِتَابَانِ (two books), طَالِبَانِ (two students)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">جَمْع</td>
-                        <td class="transliteration">Jam'</td>
-                        <td class="english">Plural</td>
-                        <td class="examples">كُتُب (books), طُلاَّب (students)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">جَمْع مُذَكَّر سَالِم</td>
-                        <td class="transliteration">Jam' Mudhakkar Saalim</td>
-                        <td class="english">Sound Masculine Plural</td>
-                        <td class="examples">مُسْلِمُونَ (Muslims-m), مُدَرِّسُونَ (teachers-m)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">جَمْع مُؤَنَّث سَالِم</td>
-                        <td class="transliteration">Jam' Mu'annath Saalim</td>
-                        <td class="english">Sound Feminine Plural</td>
-                        <td class="examples">مُسْلِمَات (Muslims-f), مُدَرِّسَات (teachers-f)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">جَمْع التَّكْسِير</td>
-                        <td class="transliteration">Jam' at-Takseer</td>
-                        <td class="english">Broken Plural</td>
-                        <td class="examples">كُتُب (books), رِجَال (men), أَقْلام (pens)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">مُفْرَد</div>
+                    <div class="transliteration">Mufrad</div>
+                    <div class="english">Singular</div>
+                    <div class="examples">كِتَاب (book), طَالِب (student)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">مُثَنَّى</div>
+                    <div class="transliteration">Muthanna</div>
+                    <div class="english">Dual</div>
+                    <div class="examples">كِتَابَانِ (two books), طَالِبَانِ (two students)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">جَمْع</div>
+                    <div class="transliteration">Jam'</div>
+                    <div class="english">Plural</div>
+                    <div class="examples">كُتُب (books), طُلاَّب (students)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">جَمْع مُذَكَّر سَالِم</div>
+                    <div class="transliteration">Jam' Mudhakkar Saalim</div>
+                    <div class="english">Sound Masculine Plural</div>
+                    <div class="examples">مُسْلِمُونَ (Muslims-m), مُدَرِّسُونَ (teachers-m)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">جَمْع مُؤَنَّث سَالِم</div>
+                    <div class="transliteration">Jam' Mu'annath Saalim</div>
+                    <div class="english">Sound Feminine Plural</div>
+                    <div class="examples">مُسْلِمَات (Muslims-f), مُدَرِّسَات (teachers-f)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">جَمْع التَّكْسِير</div>
+                    <div class="transliteration">Jam' at-Takseer</div>
+                    <div class="english">Broken Plural</div>
+                    <div class="examples">كُتُب (books), رِجَال (men), أَقْلام (pens)</div>
+                </div>
+            </div>
         </div>
 
         <!-- DEFINITENESS -->
         <div class="category-section">
             <h2 class="category-title">6️⃣ Definiteness (التَّعْرِيف وَالتَّنْكِير)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">مَعْرِفَة</td>
-                        <td class="transliteration">Ma'rifa</td>
-                        <td class="english">Definite</td>
-                        <td class="examples">الكِتَاب (the book), مُحَمَّد (Muhammad)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">نَكِرَة</td>
-                        <td class="transliteration">Nakira</td>
-                        <td class="english">Indefinite</td>
-                        <td class="examples">كِتَابٌ (a book), رَجُلٌ (a man)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">أَلْ التَّعْرِيف</td>
-                        <td class="transliteration">Alif-Laam at-Ta'reef</td>
-                        <td class="english">The Definite Article</td>
-                        <td class="examples">ال (the)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">مَعْرِفَة</div>
+                    <div class="transliteration">Ma'rifa</div>
+                    <div class="english">Definite</div>
+                    <div class="examples">الكِتَاب (the book), مُحَمَّد (Muhammad)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">نَكِرَة</div>
+                    <div class="transliteration">Nakira</div>
+                    <div class="english">Indefinite</div>
+                    <div class="examples">كِتَابٌ (a book), رَجُلٌ (a man)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">أَلْ التَّعْرِيف</div>
+                    <div class="transliteration">Alif-Laam at-Ta'reef</div>
+                    <div class="english">The Definite Article</div>
+                    <div class="examples">ال (the)</div>
+                </div>
+            </div>
         </div>
 
         <!-- CASE ENDINGS -->
         <div class="category-section">
             <h2 class="category-title">7️⃣ Case Endings (الإِعْرَاب)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Ending</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">رَفْع</td>
-                        <td class="transliteration">Raf'</td>
-                        <td class="english">Nominative Case</td>
-                        <td class="examples">ـُ (dhamma) or ـونَ</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">نَصْب</td>
-                        <td class="transliteration">Nasb</td>
-                        <td class="english">Accusative Case</td>
-                        <td class="examples">ـَ (fatha) or ـينَ</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">جَرّ</td>
-                        <td class="transliteration">Jarr</td>
-                        <td class="english">Genitive Case</td>
-                        <td class="examples">ـِ (kasra) or ـينَ</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">جَزْم</td>
-                        <td class="transliteration">Jazm</td>
-                        <td class="english">Jussive Case (verbs only)</td>
-                        <td class="examples">ـْ (sukoon) or removal of ن</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">رَفْع</div>
+                    <div class="transliteration">Raf'</div>
+                    <div class="english">Nominative Case</div>
+                    <div class="examples">ـُ (dhamma) or ـونَ</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">نَصْب</div>
+                    <div class="transliteration">Nasb</div>
+                    <div class="english">Accusative Case</div>
+                    <div class="examples">ـَ (fatha) or ـينَ</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">جَرّ</div>
+                    <div class="transliteration">Jarr</div>
+                    <div class="english">Genitive Case</div>
+                    <div class="examples">ـِ (kasra) or ـينَ</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">جَزْم</div>
+                    <div class="transliteration">Jazm</div>
+                    <div class="english">Jussive Case (verbs only)</div>
+                    <div class="examples">ـْ (sukoon) or removal of ن</div>
+                </div>
+            </div>
         </div>
 
         <!-- SENTENCE TYPES -->
         <div class="category-section">
             <h2 class="category-title">8️⃣ Sentence Types (أَنْوَاع الجُمَل)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Structure</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">جُمْلَة اِسْمِيَّة</td>
-                        <td class="transliteration">Jumla Ismiyya</td>
-                        <td class="english">Nominal Sentence</td>
-                        <td class="examples">Subject (مُبْتَدَأ) + Predicate (خَبَر)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">جُمْلَة فِعْلِيَّة</td>
-                        <td class="transliteration">Jumla Fi'liyya</td>
-                        <td class="english">Verbal Sentence</td>
-                        <td class="examples">Verb (فِعْل) + Subject (فَاعِل) + Object (مَفْعُول)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">مُبْتَدَأ</td>
-                        <td class="transliteration">Mubtada'</td>
-                        <td class="english">Subject (of nominal sentence)</td>
-                        <td class="examples">الطَّالِبُ in: الطَّالِبُ مُجْتَهِدٌ (The student is hardworking)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">خَبَر</td>
-                        <td class="transliteration">Khabar</td>
-                        <td class="english">Predicate</td>
-                        <td class="examples">مُجْتَهِدٌ in: الطَّالِبُ مُجْتَهِدٌ</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">فَاعِل</td>
-                        <td class="transliteration">Faa'il</td>
-                        <td class="english">Subject (of verbal sentence)</td>
-                        <td class="examples">الطَّالِبُ in: ذَهَبَ الطَّالِبُ (The student went)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">مَفْعُول بِه</td>
-                        <td class="transliteration">Maf'ool bihi</td>
-                        <td class="english">Direct Object</td>
-                        <td class="examples">الكِتَابَ in: قَرَأَ الطَّالِبُ الكِتَابَ (The student read the book)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">جُمْلَة اِسْمِيَّة</div>
+                    <div class="transliteration">Jumla Ismiyya</div>
+                    <div class="english">Nominal Sentence</div>
+                    <div class="examples">Subject (مُبْتَدَأ) + Predicate (خَبَر)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">جُمْلَة فِعْلِيَّة</div>
+                    <div class="transliteration">Jumla Fi'liyya</div>
+                    <div class="english">Verbal Sentence</div>
+                    <div class="examples">Verb (فِعْل) + Subject (فَاعِل) + Object (مَفْعُول)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">مُبْتَدَأ</div>
+                    <div class="transliteration">Mubtada'</div>
+                    <div class="english">Subject (of nominal sentence)</div>
+                    <div class="examples">الطَّالِبُ in: الطَّالِبُ مُجْتَهِدٌ (The student is hardworking)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">خَبَر</div>
+                    <div class="transliteration">Khabar</div>
+                    <div class="english">Predicate</div>
+                    <div class="examples">مُجْتَهِدٌ in: الطَّالِبُ مُجْتَهِدٌ</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">فَاعِل</div>
+                    <div class="transliteration">Faa'il</div>
+                    <div class="english">Subject (of verbal sentence)</div>
+                    <div class="examples">الطَّالِبُ in: ذَهَبَ الطَّالِبُ (The student went)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">مَفْعُول بِه</div>
+                    <div class="transliteration">Maf'ool bihi</div>
+                    <div class="english">Direct Object</div>
+                    <div class="examples">الكِتَابَ in: قَرَأَ الطَّالِبُ الكِتَابَ (The student read the book)</div>
+                </div>
+            </div>
         </div>
 
         <!-- ADJECTIVES -->
         <div class="category-section">
             <h2 class="category-title">9️⃣ Adjectives (الصِّفَة)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">صِفَة</td>
-                        <td class="transliteration">Sifa</td>
-                        <td class="english">Adjective/Attribute</td>
-                        <td class="examples">كَبِير (big), صَغِير (small), جَمِيل (beautiful)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">مَوْصُوف</td>
-                        <td class="transliteration">Mawsoof</td>
-                        <td class="english">Modified Noun</td>
-                        <td class="examples">The noun being described</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">نَعْت</td>
-                        <td class="transliteration">Na't</td>
-                        <td class="english">Adjective (synonym of صفة)</td>
-                        <td class="examples">Same as صِفَة</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">صِفَة</div>
+                    <div class="transliteration">Sifa</div>
+                    <div class="english">Adjective/Attribute</div>
+                    <div class="examples">كَبِير (big), صَغِير (small), جَمِيل (beautiful)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">مَوْصُوف</div>
+                    <div class="transliteration">Mawsoof</div>
+                    <div class="english">Modified Noun</div>
+                    <div class="examples">The noun being described</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">نَعْت</div>
+                    <div class="transliteration">Na't</div>
+                    <div class="english">Adjective (synonym of صفة)</div>
+                    <div class="examples">Same as صِفَة</div>
+                </div>
+            </div>
             <div class="note">
-                <strong>Note:</strong> The adjective (صِفَة) must match the noun (مَوْصُوف) in:
-                <ul style="margin-top: 10px; margin-left: 20px;">
+                <strong>Note:</strong>
+                The adjective (صِفَة) must match the noun (مَوْصُوف) in:
+                <ul>
                     <li>Gender (مُذَكَّر/مُؤَنَّث)</li>
                     <li>Number (مُفْرَد/مُثَنَّى/جَمْع)</li>
                     <li>Definiteness (مَعْرِفَة/نَكِرَة)</li>
@@ -526,195 +532,145 @@
         <!-- DEMONSTRATIVES -->
         <div class="category-section">
             <h2 class="category-title">🔟 Demonstratives (أَسْمَاء الإِشَارَة)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">اِسْم الإِشَارَة</td>
-                        <td class="transliteration">Ism al-Ishaara</td>
-                        <td class="english">Demonstrative Pronoun</td>
-                        <td class="examples">هَذَا (this-m), هَذِهِ (this-f), ذَلِكَ (that-m), تِلْكَ (that-f)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">اِسْم الإِشَارَة</div>
+                    <div class="transliteration">Ism al-Ishaara</div>
+                    <div class="english">Demonstrative Pronoun</div>
+                    <div class="examples">هَذَا (this-m), هَذِهِ (this-f), ذَلِكَ (that-m), تِلْكَ (that-f)</div>
+                </div>
+            </div>
         </div>
 
         <!-- INTERROGATIVES -->
         <div class="category-section">
             <h2 class="category-title">1️⃣1️⃣ Interrogatives (أَسْمَاء الاِسْتِفْهَام)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">اِسْم اِسْتِفْهَام</td>
-                        <td class="transliteration">Ism Istifhaam</td>
-                        <td class="english">Interrogative</td>
-                        <td class="examples">مَن (who), مَا (what), أَيْنَ (where), مَتَى (when), كَيْفَ (how), كَم (how many)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">اِسْم اِسْتِفْهَام</div>
+                    <div class="transliteration">Ism Istifhaam</div>
+                    <div class="english">Interrogative</div>
+                    <div class="examples">مَن (who), مَا (what), أَيْنَ (where), مَتَى (when), كَيْفَ (how), كَم (how many)</div>
+                </div>
+            </div>
         </div>
 
         <!-- PREPOSITIONS -->
         <div class="category-section">
             <h2 class="category-title">1️⃣2️⃣ Prepositions (حُرُوف الجَرّ)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">حَرْف الجَرّ</td>
-                        <td class="transliteration">Harf al-Jarr</td>
-                        <td class="english">Preposition</td>
-                        <td class="examples">فِي (in), مِن (from), إِلَى (to), عَلَى (on), بِـ (with/by)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">مَجْرُور</td>
-                        <td class="transliteration">Majroor</td>
-                        <td class="english">Noun in Genitive (after preposition)</td>
-                        <td class="examples">البَيْتِ in: فِي البَيْتِ (in the house)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">حَرْف الجَرّ</div>
+                    <div class="transliteration">Harf al-Jarr</div>
+                    <div class="english">Preposition</div>
+                    <div class="examples">فِي (in), مِن (from), إِلَى (to), عَلَى (on), بِـ (with/by)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">مَجْرُور</div>
+                    <div class="transliteration">Majroor</div>
+                    <div class="english">Noun in Genitive (after preposition)</div>
+                    <div class="examples">البَيْتِ in: فِي البَيْتِ (in the house)</div>
+                </div>
+            </div>
         </div>
 
         <!-- VERB TENSES -->
         <div class="category-section">
             <h2 class="category-title">1️⃣3️⃣ Verb Tenses (أَزْمِنَة الفِعْل)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">فِعْل مَاضٍ</td>
-                        <td class="transliteration">Fi'l Maadi</td>
-                        <td class="english">Past Tense Verb</td>
-                        <td class="examples">ذَهَبَ (went), كَتَبَ (wrote), قَرَأَ (read)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">فِعْل مُضَارِع</td>
-                        <td class="transliteration">Fi'l Mudaari'</td>
-                        <td class="english">Present/Future Tense Verb</td>
-                        <td class="examples">يَذْهَبُ (goes/will go), يَكْتُبُ (writes), يَقْرَأُ (reads)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">فِعْل أَمْر</td>
-                        <td class="transliteration">Fi'l Amr</td>
-                        <td class="english">Command/Imperative Verb</td>
-                        <td class="examples">اِذْهَبْ (go!), اُكْتُبْ (write!), اِقْرَأْ (read!)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">فِعْل مَاضٍ</div>
+                    <div class="transliteration">Fi'l Maadi</div>
+                    <div class="english">Past Tense Verb</div>
+                    <div class="examples">ذَهَبَ (went), كَتَبَ (wrote), قَرَأَ (read)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">فِعْل مُضَارِع</div>
+                    <div class="transliteration">Fi'l Mudaari'</div>
+                    <div class="english">Present/Future Tense Verb</div>
+                    <div class="examples">يَذْهَبُ (goes/will go), يَكْتُبُ (writes), يَقْرَأُ (reads)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">فِعْل أَمْر</div>
+                    <div class="transliteration">Fi'l Amr</div>
+                    <div class="english">Command/Imperative Verb</div>
+                    <div class="examples">اِذْهَبْ (go!), اُكْتُبْ (write!), اِقْرَأْ (read!)</div>
+                </div>
+            </div>
         </div>
 
         <!-- CONSTRUCT STATE -->
         <div class="category-section">
             <h2 class="category-title">1️⃣4️⃣ Construct State (الإِضَافَة)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">إِضَافَة</td>
-                        <td class="transliteration">Idaafa</td>
-                        <td class="english">Construct State / Possessive Construction</td>
-                        <td class="examples">كِتَابُ الطَّالِبِ (the student's book)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">مُضَاف</td>
-                        <td class="transliteration">Mudaaf</td>
-                        <td class="english">First term (possessed)</td>
-                        <td class="examples">كِتَابُ (book)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">مُضَاف إِلَيْه</td>
-                        <td class="transliteration">Mudaaf ilayhi</td>
-                        <td class="english">Second term (possessor)</td>
-                        <td class="examples">الطَّالِبِ (the student)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">إِضَافَة</div>
+                    <div class="transliteration">Idaafa</div>
+                    <div class="english">Construct State / Possessive Construction</div>
+                    <div class="examples">كِتَابُ الطَّالِبِ (the student's book)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">مُضَاف</div>
+                    <div class="transliteration">Mudaaf</div>
+                    <div class="english">First term (possessed)</div>
+                    <div class="examples">كِتَابُ (book)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">مُضَاف إِلَيْه</div>
+                    <div class="transliteration">Mudaaf ilayhi</div>
+                    <div class="english">Second term (possessor)</div>
+                    <div class="examples">الطَّالِبِ (the student)</div>
+                </div>
+            </div>
             <div class="note">
-                <strong>Note:</strong> In إِضَافَة, the first noun (مُضَاف) never takes ال (the), and the second noun (مُضَاف إِلَيْه) is always in the genitive case (مَجْرُور).
+                <strong>Note:</strong>
+                In إِضَافَة, the first noun (مُضَاف) never takes ال (the), and the second noun (مُضَاف إِلَيْه) is always in the genitive case (مَجْرُور).
             </div>
         </div>
 
         <!-- SPECIAL PARTICLES -->
         <div class="category-section">
             <h2 class="category-title">1️⃣5️⃣ Special Particles</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Arabic Term</th>
-                        <th>Transliteration</th>
-                        <th>English</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="arabic">إِنَّ وَأَخَوَاتُهَا</td>
-                        <td class="transliteration">Inna wa Akhawaatuha</td>
-                        <td class="english">Inna and its sisters (emphatic particles)</td>
-                        <td class="examples">إِنَّ، أَنَّ، لَكِنَّ، كَأَنَّ، لَيْتَ، لَعَلَّ</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">كَانَ وَأَخَوَاتُهَا</td>
-                        <td class="transliteration">Kaana wa Akhawaatuha</td>
-                        <td class="english">Kaana and its sisters (was/is verbs)</td>
-                        <td class="examples">كَانَ، أَصْبَحَ، أَمْسَى، ظَلَّ، بَاتَ</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">لا النَّافِيَة</td>
-                        <td class="transliteration">Laa an-Naafiya</td>
-                        <td class="english">Negative Particle "No/Not"</td>
-                        <td class="examples">لا (no/not)</td>
-                    </tr>
-                    <tr>
-                        <td class="arabic">مَا النَّافِيَة</td>
-                        <td class="transliteration">Maa an-Naafiya</td>
-                        <td class="english">Negative Particle "Not"</td>
-                        <td class="examples">مَا (not)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="terms-container">
+                <div class="term-card">
+                    <div class="arabic">إِنَّ وَأَخَوَاتُهَا</div>
+                    <div class="transliteration">Inna wa Akhawaatuha</div>
+                    <div class="english">Inna and its sisters (emphatic particles)</div>
+                    <div class="examples">إِنَّ، أَنَّ، لَكِنَّ، كَأَنَّ، لَيْتَ، لَعَلَّ</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">كَانَ وَأَخَوَاتُهَا</div>
+                    <div class="transliteration">Kaana wa Akhawaatuha</div>
+                    <div class="english">Kaana and its sisters (was/is verbs)</div>
+                    <div class="examples">كَانَ، أَصْبَحَ، أَمْسَى، ظَلَّ، بَاتَ</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">لا النَّافِيَة</div>
+                    <div class="transliteration">Laa an-Naafiya</div>
+                    <div class="english">Negative Particle "No/Not"</div>
+                    <div class="examples">لا (no/not)</div>
+                </div>
+
+                <div class="term-card">
+                    <div class="arabic">مَا النَّافِيَة</div>
+                    <div class="transliteration">Maa an-Naafiya</div>
+                    <div class="english">Negative Particle "Not"</div>
+                    <div class="examples">مَا (not)</div>
+                </div>
+            </div>
         </div>
 
         <div class="attribution">
-            <p><strong>Created with Claude AI</strong> • For use with Madina Arabic Course and Classical Arabic Grammar Studies</p>
-            <p style="margin-top: 10px;">This reference guide covers the fundamental grammatical terminology used in Madina Books 1-3 and traditional Arabic grammar (نحو وصرف).</p>
+            <p><strong>Created with Claude AI</strong></p>
+            <p>For use with Madina Arabic Course and Classical Arabic Grammar Studies</p>
+            <p>This reference guide covers the fundamental grammatical terminology used in Madina Books 1-3 and traditional Arabic grammar (نحو وصرف).</p>
         </div>
     </div>
 </body>
